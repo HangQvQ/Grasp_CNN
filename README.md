@@ -1,6 +1,6 @@
 # Grasp CNN
 Grasp detection and Semantic Segmentation
-<img src="Grasp_CNN.png" alt="scene" width="650" height="300">
+<img src="Grasp_CNN.png" alt="scene">
 
 ## Requirements and setup
 
