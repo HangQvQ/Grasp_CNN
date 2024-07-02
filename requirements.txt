@@ -1,0 +1,10 @@
+git+https://github.com/mapillary/inplace_abn.git
+numpy
+opencv-contrib-python
+Pillow
+scikit-image
+scipy
+Shapely
+umsgpack==0.1.0
+future==0.18.2
+tensorboard
