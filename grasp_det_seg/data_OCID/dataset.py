@@ -194,8 +194,8 @@ class CornellDataset(data.Dataset):
 
     def _load_split(self):
         images = []
-        for root, dirs, files in os.walk(self.data_path):
-            for file in files:
+        for root, dirs, files in sorted(os.walk(self.data_path)):
+            for file in sorted(files):
                 if file.endswith('.zip'):
                     continue
                 if file.endswith('.png'):

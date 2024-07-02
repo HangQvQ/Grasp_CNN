@@ -1,16 +1,21 @@
 # Grasp CNN
 Grasp detection and Semantic Segmentation
 <img src="Grasp_CNN.png" alt="scene">
+adapted from [grasp_det_seg_cnn](https://github.com/stefan-ainetter/grasp_det_seg_cnn.git). Implemented code for Cornell dataset, Semantic Fusion Module and IoU Head.
 
 ## Requirements and setup
+```
+git clone https://github.com/HangQvQ/Grasp_CNN.git
+cd Grasp_CNN
+conda create -n grasp_cnn
+conda activate grasp_cnn
+```
 
 To install PyTorch, please refer to https://github.com/pytorch/pytorch#installation.
 
 To install all other dependencies using pip:
 ```
 pip install -r requirements.txt
-```
-```
 python setup.py install
 ```
 
@@ -32,13 +37,10 @@ in `LOG_DIR` (e.g. `ckpt_files_OCID`).
 The file `CONFIG` contains the network configuration e.g. `grasp_det_seg/config/defaults/det_seg_OCID.ini`, 
 and `DATA_DIR` points to the previously downloaded OCID_grasp splits, e.g. `DATA/OCID_grasp/data_split`.
 
-Note that, for now, our code **must** be launched in "distributed" mode using PyTorch's `torch.distributed.launch`
-utility.
-
 ### Running evaluation
 
 Given a trained network, inference can be run on any set of images using
-[scripts/test_det_seg_OCID.py](scripts/test_det_seg_grasp.py):
+[scripts/test_det_seg_OCID.py](scripts/evaluate_det_seg_grasp.py):
 ```bash
 cd scripts
 torchrun --nproc_per_node=1 ./scripts/evaluate_det_seg_grasp.py --local_rank=INT --log_dir=LOG_DIR CONFIG MODEL_PARAMS DATA_DIR OUTPUT_DIR DATASET_NAME
